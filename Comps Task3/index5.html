@@ -1,0 +1,98 @@
+<html>
+  <head>
+   
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {
+        'packages':['geochart'],
+      });
+      google.charts.setOnLoadCallback(drawRegionsMap);
+
+      function drawRegionsMap() {
+        var data = google.visualization.arrayToDataTable([
+        ['Country', 'Cases' ],
+          ['India', 8339],
+          // ['United States of America', 521714],
+          ['Brazil',20022],
+          ['Canada', 22575],
+          ['France', 129654],
+          ['RU', 13584],
+          ['South africa', 2028],
+          ['UK',78991],
+        ]);
+
+        var options = {};
+
+        var chart = new google.visualization.GeoChart(document.getElementById('regions_div'));
+
+        chart.draw(data, options);
+      }
+    </script>
+    <h1>GEO-GRAPH BASED ON COVID-19 CASES IN DIFFERENT COUNTRIES</h1>
+    
+    <script type="text/javascript">
+        google.charts.load("current", {packages:["corechart"]});
+        google.charts.setOnLoadCallback(drawChart);
+        function drawChart() {
+          var data = google.visualization.arrayToDataTable([
+            ["Country", "Deaths", { role: "style" } ],
+            ["India", 	288, "red"],
+            ["RU", 106, "rgb(0, 0, 72)"],
+            ["South Aftrica",25, "rgb(158, 233, 208)"],
+            ["Australia",56, "color: rgb(241, 241, 190)"],
+            ["Mexico", 233, "rgb(162, 224, 224)"],
+            ["UAE", 20, "gold"],
+          ]);
+    
+          var view = new google.visualization.DataView(data);
+          view.setColumns([0, 1,
+                           { calc: "stringify",
+                             sourceColumn: 1,
+                             type: "string",
+                             role: "annotation" },
+                           2]);
+    
+          var options = {
+            title: "Deaths in different countries",
+            width: 600,
+            height: 400,
+            bar: {groupWidth: "95%"},
+            legend: { position: "none" },
+          };
+          var chart = new google.visualization.BarChart(document.getElementById("barchart_values"));
+          chart.draw(view, options);
+      }
+      </script>
+  
+  </head>
+  <body>
+    <div id="regions_div" style="width: 1350px; height: 750px; padding-left: 50px; ;"></div>
+    <div id="barchart_values" style="width: 3000px; height: 1000px; padding-top:500px;padding-left: 400px;"></div>
+    <h2>BAR GRAPH BASED ON DEATHS CAUSE DUE TO COVID-19 IN DIFFERENT COUNTRIES</h2>
+  </body>
+  <style>
+    body{
+        background-color: black;
+        overflow-x: hidden;
+    }
+    h1{
+        font-size: 70px;
+        color: rgb(156, 246, 180);
+        background-color: rgb(0, 0, 0);
+        
+    }
+    h2{
+        color: rgb(156, 246, 180);
+        margin-top: -1300px;
+        margin-left: 00px;
+        font-size: 70px;
+        background-color: black;
+    }
+        
+
+  </style>
+</html>
+
+
+
+
